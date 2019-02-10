@@ -8,6 +8,23 @@ import (
 	"github.com/kasari/dummy"
 )
 
+type hoge struct {
+	ID   int
+	Name string
+	Fuga fuga
+}
+
+type fuga struct {
+	Text string
+	Map  map[string]int
+	Poyo []poyo
+}
+
+type poyo struct {
+	privateNum uint
+	Text       string
+}
+
 type test struct {
 	b       bool
 	i       int
@@ -54,6 +71,10 @@ type node struct {
 
 func main() {
 	rand.Seed(time.Now().Unix())
+
+	h := &hoge{}
+	dummy.Set(h)
+	pp.Print(h)
 
 	t := &test{}
 	dummy.Set(t)
